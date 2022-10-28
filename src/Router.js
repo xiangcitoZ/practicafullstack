@@ -5,18 +5,38 @@ import DetallesEquipo from './Components/DetallesEquipo'
 import MenuChampions from './Components/MenuChampions'
 import Home from './Components/Home'
 import Jugadores from './Components/Jugadores'
+import DetallesJugador from './Components/DetallesJugador'
+import Apuestas from './Components/Apuestas'
+import InsertarApuesta from './Components/InsertarApuesta'
 
 export default class Router extends Component {
   render() {
 
     function DetallesEquipoElement(){
       var {idequipo} = useParams();
-      console.log(idequipo);
+      
       return(
         <DetallesEquipo idequipo={idequipo} />
       );
 
     }
+
+    function JugadoresElement(){
+      var {idequipo} = useParams();
+
+      return(
+        <Jugadores idequipo={idequipo} />
+      );
+    }
+
+    function DetallesJugadorElement(){
+      var {idjugador} = useParams();
+
+      return(
+        <DetallesJugador idjugador={idjugador}/>
+      );
+    }
+
 
     return (
       <BrowserRouter>
@@ -24,8 +44,11 @@ export default class Router extends Component {
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/home' element={<Home/>}/>
+          <Route path='/apuestas' element={<Apuestas/>}/>
+          <Route path='insertarapuesta' element={<InsertarApuesta/>}/>
           <Route path='/equipo/:idequipo' element={<DetallesEquipoElement/>} />
-          <Route path='/jugadores/' element={<Jugadores/>}/>
+          <Route path='/jugadores/jugadoresequipo/:idequipo' element={<JugadoresElement/>}/>
+          <Route path='/detallesjugador/:idjugador' element={<DetallesJugadorElement/>} />
         </Routes>
       </BrowserRouter>
     )

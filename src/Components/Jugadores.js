@@ -13,8 +13,10 @@ export default class Jugadores extends Component {
     }
 
     loadJugadores = () => {
-        var request = "api/Jugadores";
+        var id = this.props.idequipo;
+        var request = "api/Jugadores/JugadoresEquipo/" + id;
         var url = Global.urlChampions + request;
+    
         axios.get(url).then(response => {
             this.setState({
                 jugadores: response.data,
@@ -26,7 +28,6 @@ export default class Jugadores extends Component {
     componentDidMount = () => {
         this.loadJugadores();
     }
-
 
     render() {
         return (
@@ -47,8 +48,8 @@ export default class Jugadores extends Component {
                                     <td>{jugadores.nombre}</td>
                                     <td><img src={jugadores.imagen}/></td>
                                     <td>
-                                            <NavLink to={"/details/"} className="btn btn-success">Details</NavLink>
-                                        </td>
+                                        <NavLink to={"/detallesjugador/"+jugadores.idJugador} className="btn btn-success">Detalles</NavLink>
+                                    </td>
                                     
                                     
                                 </tr>)

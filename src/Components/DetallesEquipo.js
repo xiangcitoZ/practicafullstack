@@ -12,7 +12,6 @@ export default class DetallesEquipo extends Component {
     loadEquipo = () =>{
     
         var id = this.props.idequipo;
-        console.log(id)
         var request = "api/Equipos/" + id;
         var url = Global.urlChampions + request;
         console.log(url);
@@ -45,7 +44,7 @@ export default class DetallesEquipo extends Component {
         <br/>
         <p>{this.state.equipo.descripcion}</p>
         <br/>
-        <NavLink to={"/jugadores/"} className="btn btn-success">Jugadores</NavLink>
+        <NavLink to={"/jugadores/jugadoresequipo/"+this.props.idequipo} className="btn btn-success">Jugadores</NavLink>
         <NavLink to={"/home"} className="btn btn-info">Volver</NavLink>
       </div>
     )

@@ -47,7 +47,7 @@ export default class MenuChampions extends Component {
               </li>
               
               <li className="nav-item">
-                <NavLink className="nav-link active" to="/apuesta">Apuesta</NavLink>
+                <NavLink className="nav-link active" to="/apuestas">Apuestas</NavLink>
                 
               </li>
               <li className="nav-item dropdown">
